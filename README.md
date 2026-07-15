@@ -18,7 +18,7 @@ Fecha de referencia del análisis: 01/01/2026
 Power BI Desktop, DAX, Power Query, SQL
 
 ## Análisis en Power BI
-1. Resumen
+1. Análisis del portfolio de tarjetas
 2. Composición del portfolio
 3. Vencimientos
 4. Límites de crédito
@@ -34,7 +34,7 @@ Power BI Desktop, DAX, Power Query, SQL
 3. Vencimientos
 4. Límites de crédito
 5. Aperturas
-6. Antigüedad del PIN
+6. Antigüedad
 7. Perfil financiero
 8. Transacciones
 9. Gastos por segmento
@@ -42,15 +42,8 @@ Power BI Desktop, DAX, Power Query, SQL
 11. Clientes de alto tiesgo
 
 ## Hallazgos principales
--Mastercard domina el mercado de las tarjetas
--Hay mas tarjetas de débito
--Hay gran cantidad de tarjetas vencidas
--La mayoria de las tarjetas tiene chip
--El límite de crédito promedio ronda los 15 mil
--Los PINs se actualizan cada 13 años en promedio
--2020 es el año con más aperturas
--El trimestre con más transacciones es el 3ro (julio, agosto, septiembre)
--El promedio de ingresos anuales de los clientes es de 45.720 dolares
+-Más de la mitad de las tarjetas están vencidas (54%)
+-Cerca de un tercio de las tarjetas se actualizaron en los últimos 10 años 
+-2020 es, con diferencia, el año con más aperturas de cuentas
 -El 68% de los clientes son de alto riesgo
--El 46,50 % de las tarjetas tienen transacciones
--El 56,55% de los clientes hacen transacciones
+-A mayor ingreso anual mayor gasto por transacción
