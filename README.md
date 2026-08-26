@@ -48,7 +48,7 @@ Higher annual income is associated with higher spending per transaction
 
 # Proyecto Analisis de Tarjetas
 
-**ES:**Análisis en SQL y Power BI de modelo estrella de 3 datasets relacionados.
+**ES:** Análisis en SQL y Power BI de modelo estrella de 3 datasets relacionados.
 
 ## Contexto
 Fecha de referencia del análisis: 01/01/2026
