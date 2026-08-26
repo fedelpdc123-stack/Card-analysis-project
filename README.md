@@ -1,10 +1,54 @@
-# Proyecto Analisis de Tarjetas / Cards Analysis Project
+# Cards Analysis Project
 
 **EN:** Credit card analysis project using SQL and Power BI.  
 Built on a star schema with 3 related datasets (customers, cards, transactions).  
 Focus on portfolio composition, customer behavior, and risk segmentation, etc.
 
-Análisis en SQL y Power BI de modelo estrella de 3 datasets relacionados.
+## Context
+Analysis reference date: 01/01/2026
+
+## Data
+6,146 credit cards (cards_data)
+2,000 customers (users_data)
+1,048,575 transactions (transactions_data)
+
+## Tools
+Power BI Desktop, DAX, Power Query, SQL
+
+## Power BI Analysis
+1. Card portfolio analysis
+2. Portfolio composition
+3. Expirations
+4. Credit limits
+5. Openings
+6. Updates
+7. Financial profile
+8. Transactions
+9. High-risk customers
+    
+## SQL Analysis
+1. Data transformation
+2. Portfolio composition
+3. Expirations
+4. Credit limits
+5. Openings
+6. Tenure
+7. Financial profile
+8. Transactions
+9. Spending by segment
+10. Customer risk
+11. High-risk customers
+    
+## Key Findings
+More than half of the cards are expired (54%)
+Nearly one-third of the cards were updated within the last 10 years
+2020 is by far the year with the most account openings
+68% of customers are high-risk
+Higher annual income is associated with higher spending per transaction
+
+# Proyecto Analisis de Tarjetas
+
+**ES:**Análisis en SQL y Power BI de modelo estrella de 3 datasets relacionados.
 
 ## Contexto
 Fecha de referencia del análisis: 01/01/2026
