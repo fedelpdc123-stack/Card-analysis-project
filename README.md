@@ -1,4 +1,4 @@
-# Proyecto-analisis-de-tarjetas / Cards Analysis Project
+# Proyecto Analisis de Tarjetas / Cards Analysis Project
 
 **EN:** Credit card analysis project using SQL and Power BI.  
 Built on a star schema with 3 related datasets (customers, cards, transactions).  
