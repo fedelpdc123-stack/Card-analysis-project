@@ -185,54 +185,104 @@ SELECT
 FROM transactions_data t
 JOIN seg ON t.client_id = seg.client_id
 GROUP BY seg.segmento;
-</sql><sql name="Riesgo de clientes*">WITH riesgo AS (
-    SELECT client_id,
-           MAX(CASE WHEN expires &lt; DATE('2026-01-01') THEN 1 ELSE 0 END) AS tiene_vencida,
-           MAX(CASE 
-               WHEN (CAST(STRFTIME('%Y', '2026-01-01') AS INTEGER) - year_pin_last_changed) &gt; 10 
-               THEN 1 ELSE 0 
-           END) AS pin_viejo
-    FROM cards_data
-    GROUP BY client_id
-),
-clasificado AS (
-    SELECT client_id,
-           CASE 
-               WHEN tiene_vencida = 1 AND pin_viejo = 1 THEN 'Cliente de alto riesgo'
-               WHEN tiene_vencida = 1 THEN 'Cliente de medio riesgo'
-               ELSE 'Cliente de bajo riesgo'
-           END AS tipo
-    FROM riesgo
-)
-SELECT tipo, 
-       COUNT(*) AS clientes,
-       ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM clasificado), 2) AS pct
-FROM clasificado
-GROUP BY tipo;
-</sql><sql name="Cientes de alto riesgo*">WITH riesgo AS (
-    SELECT client_id,
-           MAX(CASE WHEN expires &lt; DATE('2026-01-01') THEN 1 ELSE 0 END) AS tiene_vencida,
-           MAX(CASE 
-               WHEN (CAST(STRFTIME('%Y', '2026-01-01') AS INTEGER) - year_pin_last_changed) &gt; 10 
-               THEN 1 ELSE 0 
-           END) AS pin_viejo
-    FROM cards_data
-    GROUP BY client_id
-),
-clasificado AS (
-    SELECT client_id,
-           CASE 
-               WHEN tiene_vencida = 1 AND pin_viejo = 1 THEN 'Cliente de alto riesgo'
-               WHEN tiene_vencida = 1 THEN 'Cliente de medio riesgo'
-               ELSE 'Cliente de bajo riesgo'
-           END AS tipo
-    FROM riesgo
-)
-
--- 2. Distribución por edad de clientes de alto riesgo
-SELECT u.current_age, COUNT(*) AS cantidad_clientes
-FROM clasificado c
-JOIN users_data u ON c.client_id = u.client_id
-WHERE c.tipo = 'Cliente de alto riesgo'
-GROUP BY u.current_age
+</sql><sql name="Riesgo de clientes*">WITH riesgo AS (
+
+    SELECT client_id,
+
+           MAX(CASE WHEN expires &lt; DATE('2026-01-01') THEN 1 ELSE 0 END) AS tiene_vencida,
+
+           MAX(CASE 
+
+               WHEN (CAST(STRFTIME('%Y', '2026-01-01') AS INTEGER) - year_pin_last_changed) &gt; 10 
+
+               THEN 1 ELSE 0 
+
+           END) AS pin_viejo
+
+    FROM cards_data
+
+    GROUP BY client_id
+
+),
+
+clasificado AS (
+
+    SELECT client_id,
+
+           CASE 
+
+               WHEN tiene_vencida = 1 AND pin_viejo = 1 THEN 'Cliente de alto riesgo'
+
+               WHEN tiene_vencida = 1 THEN 'Cliente de medio riesgo'
+
+               ELSE 'Cliente de bajo riesgo'
+
+           END AS tipo
+
+    FROM riesgo
+
+)
+
+SELECT tipo, 
+
+       COUNT(*) AS clientes,
+
+       ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM clasificado), 2) AS pct
+
+FROM clasificado
+
+GROUP BY tipo;
+
+</sql><sql name="Cientes de alto riesgo*">WITH riesgo AS (
+
+    SELECT client_id,
+
+           MAX(CASE WHEN expires &lt; DATE('2026-01-01') THEN 1 ELSE 0 END) AS tiene_vencida,
+
+           MAX(CASE 
+
+               WHEN (CAST(STRFTIME('%Y', '2026-01-01') AS INTEGER) - year_pin_last_changed) &gt; 10 
+
+               THEN 1 ELSE 0 
+
+           END) AS pin_viejo
+
+    FROM cards_data
+
+    GROUP BY client_id
+
+),
+
+clasificado AS (
+
+    SELECT client_id,
+
+           CASE 
+
+               WHEN tiene_vencida = 1 AND pin_viejo = 1 THEN 'Cliente de alto riesgo'
+
+               WHEN tiene_vencida = 1 THEN 'Cliente de medio riesgo'
+
+               ELSE 'Cliente de bajo riesgo'
+
+           END AS tipo
+
+    FROM riesgo
+
+)
+
+
+
+-- 2. Distribución por edad de clientes de alto riesgo
+
+SELECT u.current_age, COUNT(*) AS cantidad_clientes
+
+FROM clasificado c
+
+JOIN users_data u ON c.client_id = u.client_id
+
+WHERE c.tipo = 'Cliente de alto riesgo'
+
+GROUP BY u.current_age
+
 ORDER BY u.current_age;</sql><current_tab id="7"/></tab_sql></sqlb_project>
